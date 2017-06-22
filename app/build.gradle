@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "com.paradigmadigital.dagger"
+        minSdkVersion 21
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext {
+    support = '25.3.1'
+    constraint = '1.0.2'
+
+    dagger = '2.11'
+
+    junit = '4.11'
+    robolectric = '3.3'
+    assertj = '1.1.1'
+    mockito = '2.7.14'
+    espresso = '2.2.2'
+    runner = '0.5'
+    commons = '2.4'
+    jsr305 = '3.0.1'
+}
+
+dependencies {
+    compile "com.android.support:appcompat-v7:$support"
+    compile "com.android.support.constraint:constraint-layout:$constraint"
+
+    apt "com.google.dagger:dagger-compiler:$dagger"
+    compile "com.google.dagger:dagger:$dagger"
+
+    apt "com.google.dagger:dagger-android-processor:$dagger"
+    compile "com.google.dagger:dagger-android-support:$dagger"
+
+    testCompile "junit:junit:$junit"
+    testCompile("com.squareup.assertj:assertj-android:$assertj") {
+        exclude module: 'support-annotations'
+    }
+    testCompile "org.mockito:mockito-core:$mockito"
+
+    androidTestCompile "com.google.code.findbugs:jsr305:$jsr305"
+    androidTestCompile("com.android.support.test:runner:$runner") {
+        exclude module: 'support-annotations'
+    }
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$espresso") {
+        exclude module: 'support-annotations'
+    }
+    androidTestCompile("com.android.support.test.espresso:espresso-intents:$espresso") {
+        exclude module: 'support-annotations'
+    }
+    androidTestCompile("com.android.support.test.espresso:espresso-contrib:$espresso") {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'support-annotations'
+        exclude module: 'design'
+    }
+}
