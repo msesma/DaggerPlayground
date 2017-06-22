@@ -15,6 +15,13 @@ import dagger.Subcomponent;
 )
 public interface ActivityComponent {
 
+    @Subcomponent.Builder
+    interface Builder {
+        Builder activityModule(ActivityModule module);
+
+        ActivityComponent build();
+    }
+
     void inject(MainActivity mainActivity);
 
     void inject(DetailActivity detailActivity);

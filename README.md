@@ -1,12 +1,16 @@
 Dagger 2 playground
 ================
 
-# Subcomponents mode
+# Subcomponents with builders mode
 
 ### Description
 
-Changed files: ActivityComponent, ApplicationComponent and BaseActivity.
-Now ActivityComponent is a Subcomponent and is provided by means a plus function from ApplicationComponent. 
+Changed files: ActivityComponent, ApplicationComponent, AndroidAplication, applicationModule and BaseActivity.
+Added files ActivityKey and ActivityBinding Module
+
+Now ApplicationComponent and ActivityComponent have its own builders. 
+Application component has a method to provide the ActivityComponent builder.
+Subcomponents are now binded to main component via ActivityBindingModule.
 
 ### Exercises
 

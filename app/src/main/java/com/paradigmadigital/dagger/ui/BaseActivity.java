@@ -15,7 +15,10 @@ public class BaseActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.activityComponent = getApplicationComponent().plus(new ActivityModule(this));
+        this.activityComponent = getApplicationComponent()
+                .getActivityComponentBuilder()
+                .activityModule(new ActivityModule(this))
+                .build();
     }
 
     protected ApplicationComponent getApplicationComponent() {

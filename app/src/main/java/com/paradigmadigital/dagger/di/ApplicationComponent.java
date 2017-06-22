@@ -1,5 +1,6 @@
 package com.paradigmadigital.dagger.di;
 
+import com.paradigmadigital.dagger.platform.ActivityBindingModule;
 import com.paradigmadigital.dagger.platform.AndroidApplication;
 import com.paradigmadigital.dagger.platform.ApplicationModule;
 import com.paradigmadigital.dagger.ui.AppColaborator;
@@ -13,6 +14,7 @@ import dagger.Component;
 
 @Singleton
 @Component(modules = {
+        ActivityBindingModule.class,
         ApplicationModule.class
 })
 public interface ApplicationComponent {
@@ -24,6 +26,8 @@ public interface ApplicationComponent {
 
         ApplicationComponent build();
     }
+
+    ActivityComponent.Builder getActivityComponentBuilder();
 
     //Exposed to sub-graphs
     Context provideContext();
