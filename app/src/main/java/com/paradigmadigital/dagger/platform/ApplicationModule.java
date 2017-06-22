@@ -11,15 +11,15 @@ import dagger.Provides;
 
 @Module
 public class ApplicationModule {
-    private final AndroidApplication application;
-
-    public ApplicationModule(AndroidApplication application) {
-        this.application = application;
-    }
+//    private final AndroidApplication application;
+//
+//    public ApplicationModule(AndroidApplication application) {
+//        this.application = application;
+//    }
 
     @Provides
-    Context provideContext() {
-        return this.application;
+    Context provideContext(AndroidApplication application) {
+        return application;
     }
 
     @Provides
