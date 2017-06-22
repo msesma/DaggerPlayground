@@ -1,5 +1,6 @@
 package com.paradigmadigital.dagger.di;
 
+import com.paradigmadigital.dagger.platform.ActivityModule;
 import com.paradigmadigital.dagger.platform.ApplicationModule;
 import com.paradigmadigital.dagger.ui.AppColaborator;
 
@@ -14,6 +15,8 @@ import dagger.Component;
         ApplicationModule.class
 })
 public interface ApplicationComponent {
+
+    ActivityComponent plus(ActivityModule activityModule);
 
     //Exposed to sub-graphs
     Context provideContext();

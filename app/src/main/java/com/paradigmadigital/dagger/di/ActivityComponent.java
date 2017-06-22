@@ -7,11 +7,10 @@ import com.paradigmadigital.dagger.ui.another.AnotherActivity;
 import com.paradigmadigital.dagger.ui.detail.DetailActivity;
 import com.paradigmadigital.dagger.ui.main.MainActivity;
 
-import dagger.Component;
+import dagger.Subcomponent;
 
 @PerActivity
-@Component(
-        dependencies = ApplicationComponent.class,
+@Subcomponent(
         modules = ActivityModule.class
 )
 public interface ActivityComponent {
