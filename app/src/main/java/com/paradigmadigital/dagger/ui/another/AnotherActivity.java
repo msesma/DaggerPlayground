@@ -8,6 +8,8 @@ import android.os.Bundle;
 
 import javax.inject.Inject;
 
+import dagger.android.AndroidInjection;
+
 public class AnotherActivity extends BaseActivity {
 
     @Inject
@@ -15,9 +17,9 @@ public class AnotherActivity extends BaseActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_another);
-        getActivityComponent().inject(this);
 
         presenter.initialize();
     }

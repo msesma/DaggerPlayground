@@ -9,6 +9,8 @@ import android.widget.Button;
 
 import javax.inject.Inject;
 
+import dagger.android.AndroidInjection;
+
 public class MainActivity extends BaseActivity {
 
     @Inject
@@ -23,9 +25,9 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getActivityComponent().inject(this);
 
         presenter.initialize();
         ((Button) findViewById(R.id.button)).setOnClickListener(listener);

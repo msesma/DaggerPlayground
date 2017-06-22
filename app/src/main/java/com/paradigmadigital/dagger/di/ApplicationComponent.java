@@ -11,9 +11,11 @@ import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
+import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
 @Component(modules = {
+        AndroidSupportInjectionModule.class,
         ActivityBindingModule.class,
         ApplicationModule.class
 })
@@ -27,7 +29,7 @@ public interface ApplicationComponent {
         ApplicationComponent build();
     }
 
-    ActivityComponent.Builder getActivityComponentBuilder();
+    void inject(AndroidApplication androidApplication);
 
     //Exposed to sub-graphs
     Context provideContext();

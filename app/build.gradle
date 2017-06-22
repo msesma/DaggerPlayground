@@ -43,8 +43,8 @@ dependencies {
     apt "com.google.dagger:dagger-compiler:$dagger"
     compile "com.google.dagger:dagger:$dagger"
 
-//    apt "com.google.dagger:dagger-android-processor:$dagger"
-//    compile "com.google.dagger:dagger-android-support:$dagger"
+    apt "com.google.dagger:dagger-android-processor:$dagger"
+    compile "com.google.dagger:dagger-android-support:$dagger"
 
     testCompile "junit:junit:$junit"
     testCompile("com.squareup.assertj:assertj-android:$assertj") {

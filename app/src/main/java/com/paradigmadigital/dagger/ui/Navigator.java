@@ -2,6 +2,7 @@ package com.paradigmadigital.dagger.ui;
 
 import com.paradigmadigital.dagger.ui.detail.DetailActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -15,13 +16,13 @@ public class Navigator {
     private final Context context;
     private final AppColaborator appColaborator;
     private final ActColaborator actColaborator;
-    private final BaseActivity activity;
+    private final Activity activity;
 
     @Inject
     public Navigator(Context context,
             AppColaborator colaborator,
             ActColaborator actColaborator,
-            BaseActivity activity) {
+            Activity activity) {
         this.context = context;
         this.appColaborator = colaborator;
         this.actColaborator = actColaborator;

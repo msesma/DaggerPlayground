@@ -1,25 +1,34 @@
 package com.paradigmadigital.dagger.platform;
 
-import com.paradigmadigital.dagger.di.ApplicationComponent;
 import com.paradigmadigital.dagger.di.DaggerApplicationComponent;
 
+import android.app.Activity;
 import android.app.Application;
 
-public class AndroidApplication extends Application {
+import javax.inject.Inject;
 
-    private ApplicationComponent applicationComponent;
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
+
+public class AndroidApplication extends Application implements HasActivityInjector {
+
+    @Inject
+    DispatchingAndroidInjector<Activity> dispatchingAndroidInjector;
 
     @Override
 
     public void onCreate() {
         super.onCreate();
 
-        this.applicationComponent = DaggerApplicationComponent.builder()
+        DaggerApplicationComponent.builder()
                 .application(this)
-                .build();
+                .build()
+                .inject(this);
     }
 
-    public ApplicationComponent getApplicationComponent() {
-        return applicationComponent;
+    @Override
+    public AndroidInjector<Activity> activityInjector() {
+        return dispatchingAndroidInjector;
     }
 }
