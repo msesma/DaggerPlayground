@@ -3,9 +3,6 @@ package com.paradigmadigital.dagger.di;
 import com.paradigmadigital.dagger.platform.ActivityBindingModule;
 import com.paradigmadigital.dagger.platform.AndroidApplication;
 import com.paradigmadigital.dagger.platform.ApplicationModule;
-import com.paradigmadigital.dagger.ui.AppColaborator;
-
-import android.content.Context;
 
 import javax.inject.Singleton;
 
@@ -30,9 +27,4 @@ public interface ApplicationComponent {
     }
 
     void inject(AndroidApplication androidApplication);
-
-    //Exposed to sub-graphs
-    Context provideContext();
-
-    AppColaborator provideAppCollaborator();
 }
