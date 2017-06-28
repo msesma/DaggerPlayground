@@ -28,6 +28,7 @@ public class MainActivity extends BaseActivity {
         getActivityComponent().inject(this);
 
         presenter.initialize();
+        setTitle(presenter.getCollaboratorVersion());
         ((Button) findViewById(R.id.button)).setOnClickListener(listener);
     }
 }

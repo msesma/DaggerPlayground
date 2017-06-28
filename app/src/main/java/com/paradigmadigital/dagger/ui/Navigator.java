@@ -13,14 +13,14 @@ public class Navigator {
     private static final String TAG = Navigator.class.getSimpleName();
 
     private final Context context;
-    private final AppColaborator appColaborator;
-    private final ActColaborator actColaborator;
+    private final IAppCollaborator appColaborator;
+    private final ActCollaborator actColaborator;
     private final BaseActivity activity;
 
     @Inject
     public Navigator(Context context,
-            AppColaborator colaborator,
-            ActColaborator actColaborator,
+            IAppCollaborator colaborator,
+            ActCollaborator actColaborator,
             BaseActivity activity) {
         this.context = context;
         this.appColaborator = colaborator;
