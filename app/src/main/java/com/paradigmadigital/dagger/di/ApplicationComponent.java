@@ -1,7 +1,7 @@
 package com.paradigmadigital.dagger.di;
 
 import com.paradigmadigital.dagger.platform.ApplicationModule;
-import com.paradigmadigital.dagger.ui.AppColaborator;
+import com.paradigmadigital.dagger.ui.IAppCollaborator;
 
 import android.content.Context;
 
@@ -18,5 +18,5 @@ public interface ApplicationComponent {
     //Exposed to sub-graphs
     Context provideContext();
 
-    AppColaborator provideAppCollaborator();
+    IAppCollaborator provideAppCollaborator();
 }

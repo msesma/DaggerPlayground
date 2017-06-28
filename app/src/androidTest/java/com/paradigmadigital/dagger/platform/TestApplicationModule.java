@@ -1,7 +1,7 @@
 package com.paradigmadigital.dagger.platform;
 
-import com.paradigmadigital.dagger.ui.AppCollaborator;
 import com.paradigmadigital.dagger.ui.IAppCollaborator;
+import com.paradigmadigital.dagger.ui.TestAppCollaborator;
 
 import android.content.Context;
 
@@ -11,10 +11,10 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class ApplicationModule {
+public class TestApplicationModule {
     private final AndroidApplication application;
 
-    public ApplicationModule(AndroidApplication application) {
+    public TestApplicationModule(AndroidApplication application) {
         this.application = application;
     }
 
@@ -26,6 +26,6 @@ public class ApplicationModule {
     @Provides
     @Singleton
     IAppCollaborator provideAppCollaborator() {
-        return new AppCollaborator();
+        return new TestAppCollaborator();
     }
 }

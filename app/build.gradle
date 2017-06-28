@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 25
@@ -10,7 +9,7 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.paradigmadigital.dagger.platform.TestRunner"
     }
     buildTypes {
         release {
@@ -40,11 +39,8 @@ dependencies {
     compile "com.android.support:appcompat-v7:$support"
     compile "com.android.support.constraint:constraint-layout:$constraint"
 
-    apt "com.google.dagger:dagger-compiler:$dagger"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
     compile "com.google.dagger:dagger:$dagger"
-
-//    apt "com.google.dagger:dagger-android-processor:$dagger"
-//    compile "com.google.dagger:dagger-android-support:$dagger"
 
     testCompile "junit:junit:$junit"
     testCompile("com.squareup.assertj:assertj-android:$assertj") {
@@ -69,4 +65,5 @@ dependencies {
         exclude module: 'support-annotations'
         exclude module: 'design'
     }
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger"
 }
