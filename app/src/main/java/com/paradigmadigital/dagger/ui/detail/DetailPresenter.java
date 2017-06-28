@@ -1,6 +1,6 @@
 package com.paradigmadigital.dagger.ui.detail;
 
-import com.paradigmadigital.dagger.ui.ActColaborator;
+import com.paradigmadigital.dagger.ui.ActCollaborator;
 import com.paradigmadigital.dagger.ui.Navigator;
 
 import android.util.Log;
@@ -12,10 +12,10 @@ public class DetailPresenter {
     private static final String TAG = DetailPresenter.class.getSimpleName();
 
     private final Navigator navigator;
-    private final ActColaborator actColaborator;
+    private final ActCollaborator actColaborator;
 
     @Inject
-    public DetailPresenter(Navigator navigator, ActColaborator actColaborator) {
+    public DetailPresenter(Navigator navigator, ActCollaborator actColaborator) {
         this.navigator = navigator;
         this.actColaborator = actColaborator;
     }

@@ -14,18 +14,18 @@ public class Navigator {
     private static final String TAG = Navigator.class.getSimpleName();
 
     private final Context context;
-    private final AppColaborator appColaborator;
-    private final ActColaborator actColaborator;
+    private final IAppCollaborator appCollaborator;
+    private final ActCollaborator actCollaborator;
     private final Activity activity;
 
     @Inject
     public Navigator(Context context,
-            AppColaborator colaborator,
-            ActColaborator actColaborator,
+            IAppCollaborator colaborator,
+            ActCollaborator actColaborator,
             Activity activity) {
         this.context = context;
-        this.appColaborator = colaborator;
-        this.actColaborator = actColaborator;
+        this.appCollaborator = colaborator;
+        this.actCollaborator = actColaborator;
         this.activity = activity;
     }
 
@@ -44,7 +44,7 @@ public class Navigator {
     private void showLogs() {
         Log.d(TAG, "Context (App): " + context +
                 " \r\nActivity: " + activity +
-                " \r\nAppCollaborator: " + appColaborator +
-                " \r\nActCollaborator: " + actColaborator);
+                " \r\nAppCollaborator: " + appCollaborator +
+                " \r\nActCollaborator: " + actCollaborator);
     }
 }

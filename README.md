@@ -3,7 +3,7 @@ Dagger 2 playground
 
 # Subcomponents with builders mode
 
-### Description
+## Description
 
 Using components with dependency or subcomponents We were able to create the  `ActivityComponent`  at the `BaseActivity` level and then use it to inject properties into the top level activities. 
 
@@ -75,11 +75,7 @@ And finally, we can inject the current activity in our shared collaborator:
     }
 
 
-
-### Exercises
-
-#####1- Change the git branch while on changed files to apreciate the changes. 
-#####2- Run the app and verify that instances behave like in dependency component mode.
-
+####1- Change the git branch while on changed files to apreciate the changes. 
+####2- Run the app and verify that instances behave like in dependency component mode.
 
 

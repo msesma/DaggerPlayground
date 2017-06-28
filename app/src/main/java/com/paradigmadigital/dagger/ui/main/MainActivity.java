@@ -30,6 +30,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         presenter.initialize();
+        setTitle(presenter.getCollaboratorVersion());
         ((Button) findViewById(R.id.button)).setOnClickListener(listener);
     }
 }

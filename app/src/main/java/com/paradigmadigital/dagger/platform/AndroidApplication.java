@@ -17,7 +17,6 @@ public class AndroidApplication extends Application implements HasActivityInject
     DispatchingAndroidInjector<Activity> dispatchingAndroidInjector;
 
     @Override
-
     public void onCreate() {
         super.onCreate();
 

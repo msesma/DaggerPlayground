@@ -1,7 +1,7 @@
 package com.paradigmadigital.dagger.platform;
 
 import com.paradigmadigital.dagger.di.PerActivity;
-import com.paradigmadigital.dagger.ui.ActColaborator;
+import com.paradigmadigital.dagger.ui.ActCollaborator;
 
 import dagger.Module;
 import dagger.Provides;
@@ -10,7 +10,7 @@ import dagger.Provides;
 public abstract class ActivityModule {
     @Provides
     @PerActivity
-    static ActColaborator provideActCollaborator() {
-        return new ActColaborator();
+    static ActCollaborator provideActCollaborator() {
+        return new ActCollaborator();
     }
 }
