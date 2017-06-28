@@ -1,8 +1,6 @@
 package com.paradigmadigital.dagger.di;
 
 import com.paradigmadigital.dagger.platform.ActivityModule;
-import com.paradigmadigital.dagger.ui.ActColaborator;
-import com.paradigmadigital.dagger.ui.BaseActivity;
 import com.paradigmadigital.dagger.ui.another.AnotherActivity;
 import com.paradigmadigital.dagger.ui.detail.DetailActivity;
 import com.paradigmadigital.dagger.ui.main.MainActivity;
@@ -21,8 +19,4 @@ public interface ActivityComponent {
 
     void inject(AnotherActivity anotherActivity);
 
-    //Exposed to sub-graphs.
-    BaseActivity activity();
-
-    ActColaborator provideActCollaborator();
 }

@@ -7,19 +7,15 @@ import android.app.Application;
 
 public class AndroidApplication extends Application {
 
-    private ApplicationComponent applicationComponent;
-
-    @Override
-
-    public void onCreate() {
-        super.onCreate();
-
-        this.applicationComponent = DaggerApplicationComponent.builder()
-                .applicationModule(new ApplicationModule(this))
-                .build();
-    }
+    private ApplicationComponent applicationComponent = createComponent();
 
     public ApplicationComponent getApplicationComponent() {
         return applicationComponent;
+    }
+
+    protected ApplicationComponent createComponent() {
+        return DaggerApplicationComponent.builder()
+                .applicationModule(new ApplicationModule(this))
+                .build();
     }
 }
