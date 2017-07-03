@@ -11,6 +11,11 @@ There are three activities, Main has a button to open Detail that has a button t
 
 In order to verify wich instances are injected in wich Scope, the Navigator class will log collaborator instances.
 
+## Unit Tests
+Two test classes are provided as samples. MainPresenterShould tests MainPresenter that is a pure java class with no Android dependencies. It is easy to test because all the required collaborators are injected by constructor.
+
+NavigatorShould is a bit more complicated. As Navigator class relies on Android framework, we need to mock Android. We can do it running this class with Robolectric test runner.
+
 ## Instrumentation Tests
 AppCollaborator is injected as IAppCollaborator interface (Sorry for the old naming style) and have two versions, the one used in the app and the one for instrumentation tests. think on this collaborator as the Network API repository or whatever other class you must mock app level in your instrumentation tests.
 
