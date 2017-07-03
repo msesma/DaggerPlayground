@@ -1,5 +1,6 @@
 package com.paradigmadigital.dagger.ui;
 
+import com.paradigmadigital.dagger.ui.another.AnotherActivity;
 import com.paradigmadigital.dagger.ui.detail.DetailActivity;
 
 import android.content.Context;
@@ -36,7 +37,7 @@ public class Navigator {
 
     public void navigateToAnother() {
         showLogs();
-        Intent intent = new Intent(activity, DetailActivity.class);
+        Intent intent = new Intent(activity, AnotherActivity.class);
         activity.startActivity(intent);
     }
 
