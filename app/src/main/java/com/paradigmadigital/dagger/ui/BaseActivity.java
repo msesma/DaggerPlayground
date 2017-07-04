@@ -2,7 +2,6 @@ package com.paradigmadigital.dagger.ui;
 
 import com.paradigmadigital.dagger.di.ActivityComponent;
 import com.paradigmadigital.dagger.di.ApplicationComponent;
-import com.paradigmadigital.dagger.platform.ActivityModule;
 import com.paradigmadigital.dagger.platform.AndroidApplication;
 
 import android.os.Bundle;
@@ -17,7 +16,7 @@ public class BaseActivity extends AppCompatActivity {
 
         this.activityComponent = getApplicationComponent()
                 .getActivityComponentBuilder()
-                .activityModule(new ActivityModule(this))
+                .activity(this)
                 .build();
     }
 

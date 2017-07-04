@@ -1,10 +1,12 @@
 package com.paradigmadigital.dagger.di;
 
 import com.paradigmadigital.dagger.platform.ActivityModule;
+import com.paradigmadigital.dagger.ui.BaseActivity;
 import com.paradigmadigital.dagger.ui.another.AnotherActivity;
 import com.paradigmadigital.dagger.ui.detail.DetailActivity;
 import com.paradigmadigital.dagger.ui.main.MainActivity;
 
+import dagger.BindsInstance;
 import dagger.Subcomponent;
 
 @PerActivity
@@ -15,7 +17,8 @@ public interface ActivityComponent {
 
     @Subcomponent.Builder
     interface Builder {
-        Builder activityModule(ActivityModule module);
+        @BindsInstance
+        Builder activity(BaseActivity activity);
 
         ActivityComponent build();
     }

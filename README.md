@@ -5,10 +5,12 @@ Dagger 2 playground
 
 ## Description
 
-Changed files: ActivityComponent, ApplicationComponent, AndroidAplication, applicationModule and BaseActivity.
+Changed files: ActivityComponent, ApplicationComponent, AndroidAplication, ApplicationModule, ActivityModule and BaseActivity.
 Added files ActivityKey and ActivityBinding Module
 
-Now ApplicationComponent and ActivityComponent have its own builders. 
+Now ApplicationComponent and ActivityComponent have its own builders. Those component builders provide the instances by means of the @BindInstance annotations removing the need of the provides for Application and Activity on ApplicationComponent and ActivityComponent respectively. 
+Note that builders can also be used with dependent components, not only with subcomponents.
+
 Application component has a method to provide the ActivityComponent builder.
 Subcomponents are now binded to main component via ActivityBindingModule.
 
