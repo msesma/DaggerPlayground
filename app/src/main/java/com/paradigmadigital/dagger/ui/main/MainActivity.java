@@ -9,6 +9,8 @@ import android.widget.Button;
 
 import javax.inject.Inject;
 
+import eu.sesma.library.LibraryMain;
+
 public class MainActivity extends BaseActivity {
 
     @Inject
@@ -30,5 +32,8 @@ public class MainActivity extends BaseActivity {
         presenter.initialize();
         setTitle(presenter.getCollaboratorVersion());
         ((Button) findViewById(R.id.button)).setOnClickListener(listener);
+
+        LibraryMain libraryMain = new LibraryMain();
+        libraryMain.initialize();
     }
 }
