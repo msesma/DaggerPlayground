@@ -6,6 +6,7 @@ import com.paradigmadigital.dagger.ui.BaseActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import javax.inject.Inject;
 
@@ -30,10 +31,14 @@ public class MainActivity extends BaseActivity {
         getActivityComponent().inject(this);
 
         presenter.initialize();
-        setTitle(presenter.getCollaboratorVersion());
+        setTitle(presenter.getAppCollaboratorVersion());
         ((Button) findViewById(R.id.button)).setOnClickListener(listener);
 
         LibraryMain libraryMain = new LibraryMain();
         libraryMain.initialize();
+
+        ((TextView)findViewById(R.id.textView2)).setText(presenter.getLibraryCollaboratorGreet());
+
+        ((TextView)findViewById(R.id.textView3)).setText(presenter.getCoreCollaboratorGreet());
     }
 }

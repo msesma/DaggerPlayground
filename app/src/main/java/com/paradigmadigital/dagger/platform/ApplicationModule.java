@@ -1,14 +1,15 @@
 package com.paradigmadigital.dagger.platform;
 
+import android.content.Context;
+
 import com.paradigmadigital.dagger.ui.AppCollaborator;
 import com.paradigmadigital.dagger.ui.IAppCollaborator;
-
-import android.content.Context;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import eu.sesma.core.CoreCollaborator;
 
 @Module
 public class ApplicationModule {
@@ -27,5 +28,10 @@ public class ApplicationModule {
     @Singleton
     IAppCollaborator provideAppCollaborator() {
         return new AppCollaborator();
+    }
+
+    @Provides
+    CoreCollaborator provideCoreCollaborator() {
+        return new CoreCollaborator();
     }
 }

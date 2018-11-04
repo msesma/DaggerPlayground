@@ -8,6 +8,7 @@ import android.content.Context;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import eu.sesma.core.CoreCollaborator;
 
 @Singleton
 @Component(modules = {
@@ -19,4 +20,6 @@ public interface ApplicationComponent {
     Context provideContext();
 
     IAppCollaborator provideAppCollaborator();
+
+    CoreCollaborator provideCoreCollaborator();
 }

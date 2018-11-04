@@ -32,7 +32,7 @@ public class MainPresenterShould {
     public void getVersionFromCollaboratorWhengetCollaboratorVersion() {
         when(collaborator.getCollaboratorVersion()).thenReturn("version");
 
-        String version = presenter.getCollaboratorVersion();
+        String version = presenter.getAppCollaboratorVersion();
 
         assertThat(version).isEqualTo("version");
     }

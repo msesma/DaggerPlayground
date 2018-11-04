@@ -2,7 +2,7 @@ package eu.sesma.library;
 
 import javax.inject.Inject;
 
-class LibraryCollaborator {
+public class LibraryCollaborator {
 
     @Inject
     public LibraryCollaborator() {
@@ -10,6 +10,6 @@ class LibraryCollaborator {
     }
 
     public String greet() {
-        return "-Hello, LibraryMain";
+        return "-Hello, I'm Library Collaborator";
     }
 }

@@ -24,8 +24,6 @@ ext {
 }
 
 dependencies {
-    implementation project(':core')
-
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
     implementation "com.google.dagger:dagger:$dagger"
 }
