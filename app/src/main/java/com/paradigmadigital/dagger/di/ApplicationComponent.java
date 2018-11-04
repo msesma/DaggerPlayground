@@ -20,6 +20,4 @@ public interface ApplicationComponent {
     Context provideContext();
 
     IAppCollaborator provideAppCollaborator();
-
-    CoreCollaborator provideCoreCollaborator();
 }

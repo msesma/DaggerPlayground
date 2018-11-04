@@ -29,9 +29,4 @@ public class ApplicationModule {
     IAppCollaborator provideAppCollaborator() {
         return new AppCollaborator();
     }
-
-    @Provides
-    CoreCollaborator provideCoreCollaborator() {
-        return new CoreCollaborator();
-    }
 }
