@@ -5,9 +5,11 @@ Dagger 2 playground
 
 ## Description
 
-Simple implementation of dagger injection on a app module. 
-Módule `library` injects the `LibraryCollaborator` into `LibraryMain` when the main activity calls its `initialize()` method using only JSR330, but we coukd add modules, subcomponents, scopes or whatever.
+Simple implementation of dagger injection on a app module (Library).
+Module `library` injects the `LibraryCollaborator` into `LibraryMain` when the main activity calls its `initialize()` method using only JSR330, but we coukd add modules, subcomponents, scopes or whatever.
 
+
+The limitation of this approach is that libraries cannot access main app provided dependencies.
 
 ## Exercises
 
