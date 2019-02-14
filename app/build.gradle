@@ -3,12 +3,12 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.paradigmadigital.dagger"
+        applicationId "eu.sesma.dagger"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 11
         versionName "1.1"
-        testInstrumentationRunner "com.paradigmadigital.dagger.platform.TestRunner"
+        testInstrumentationRunner "eu.sesma.dagger.platform.TestRunner"
     }
     buildTypes {
         release {
