@@ -4,7 +4,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.3.1'
     }
 }
 
@@ -17,4 +17,21 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    support = '28.0.0'
+    constraint = '1.1.3'
+
+    dagger = '2.19'
+
+    junit = '4.12'
+    robolectric = '3.3'
+    assertj = '1.1.1'
+    mockito = '2.7.14'
+    espresso = '2.2.2'
+    runner = '0.5'
+    commons = '2.4'
+    jsr305 = '3.0.1'
+    robolectric = '3.3'
 }
