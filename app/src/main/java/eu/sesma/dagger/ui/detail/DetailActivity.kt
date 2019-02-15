@@ -1,15 +1,16 @@
 package eu.sesma.dagger.ui.detail
 
-import eu.sesma.dagger.R
-import eu.sesma.dagger.ui.BaseActivity
-
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
-
+import eu.sesma.dagger.R
+import eu.sesma.dagger.di.DaggerActivityComponent
+import eu.sesma.dagger.platform.ActivityModule
+import eu.sesma.dagger.platform.AndroidApplication
 import javax.inject.Inject
 
-class DetailActivity : BaseActivity() {
+class DetailActivity : AppCompatActivity() {
 
     @Inject
     lateinit var presenter: DetailPresenter
@@ -19,9 +20,12 @@ class DetailActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
-        activityComponent?.inject(this)
+        DaggerActivityComponent.builder()
+                .applicationComponent((application as AndroidApplication).applicationComponent)
+                .activityModule(ActivityModule(this))
+                .build().inject(this)
 
         presenter.initialize()
-        (findViewById<View>(R.id.button) as Button).setOnClickListener(listener)
+        findViewById<Button>(R.id.button).setOnClickListener(listener)
     }
 }

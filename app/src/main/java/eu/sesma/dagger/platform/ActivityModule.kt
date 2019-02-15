@@ -1,17 +1,17 @@
 package eu.sesma.dagger.platform
 
+import android.support.v7.app.AppCompatActivity
 import dagger.Module
 import dagger.Provides
 import eu.sesma.dagger.di.ActivityScoped
 import eu.sesma.dagger.ui.ActCollaborator
-import eu.sesma.dagger.ui.BaseActivity
 
 @Module
-class ActivityModule(private val activity: BaseActivity) {
+class ActivityModule(private val activity: AppCompatActivity) {
 
     @Provides
     @ActivityScoped
-    fun provideActivity(): BaseActivity {
+    fun provideActivity(): AppCompatActivity {
         return this.activity
     }
 

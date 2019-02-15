@@ -5,7 +5,6 @@ import android.content.Intent
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
 import eu.sesma.dagger.ui.ActCollaborator
-import eu.sesma.dagger.ui.BaseActivity
 import eu.sesma.dagger.ui.IAppCollaborator
 import eu.sesma.dagger.ui.Navigator
 import eu.sesma.dagger.ui.another.AnotherActivity

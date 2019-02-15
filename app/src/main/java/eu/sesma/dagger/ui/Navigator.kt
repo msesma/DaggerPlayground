@@ -2,6 +2,7 @@ package eu.sesma.dagger.ui
 
 import android.content.Context
 import android.content.Intent
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import eu.sesma.dagger.ui.another.AnotherActivity
 import eu.sesma.dagger.ui.detail.DetailActivity
@@ -11,7 +12,7 @@ class Navigator @Inject
 constructor(private val context: Context,
             private val appColaborator: IAppCollaborator,
             private val actColaborator: ActCollaborator,
-            private val activity: BaseActivity) {
+            private val activity: AppCompatActivity) {
 
     companion object {
         private val TAG = Navigator::class.java.simpleName
