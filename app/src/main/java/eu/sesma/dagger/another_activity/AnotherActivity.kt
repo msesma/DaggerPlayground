@@ -1,31 +1,26 @@
-package eu.sesma.dagger.ui.detail
+package eu.sesma.dagger.another_activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.View
-import android.widget.Button
 import eu.sesma.dagger.R
 import eu.sesma.dagger.di.DaggerActivityComponent
 import eu.sesma.dagger.platform.ActivityModule
 import eu.sesma.dagger.platform.AndroidApplication
 import javax.inject.Inject
 
-class DetailActivity : AppCompatActivity() {
+class AnotherActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var presenter: DetailPresenter
-
-    private val listener: View.OnClickListener = View.OnClickListener { presenter.onClick() }
+    lateinit var presenter: AnotherPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
+        setContentView(R.layout.activity_another)
         DaggerActivityComponent.builder()
                 .applicationComponent((application as AndroidApplication).applicationComponent)
                 .activityModule(ActivityModule(this))
                 .build().inject(this)
 
         presenter.initialize()
-        findViewById<Button>(R.id.button).setOnClickListener(listener)
     }
 }

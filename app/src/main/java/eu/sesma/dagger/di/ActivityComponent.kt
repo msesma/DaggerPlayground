@@ -2,11 +2,11 @@ package eu.sesma.dagger.di
 
 import android.support.v7.app.AppCompatActivity
 import dagger.Component
+import eu.sesma.dagger.another_activity.AnotherActivity
+import eu.sesma.dagger.detail.DetailActivity
+import eu.sesma.dagger.main.MainActivityCollaborator
+import eu.sesma.dagger.main.MainActivity
 import eu.sesma.dagger.platform.ActivityModule
-import eu.sesma.dagger.ui.ActCollaborator
-import eu.sesma.dagger.ui.another.AnotherActivity
-import eu.sesma.dagger.ui.detail.DetailActivity
-import eu.sesma.dagger.ui.main.MainActivity
 
 @ActivityScoped
 @Component(dependencies = [ApplicationComponent::class], modules = [ActivityModule::class])
@@ -21,5 +21,5 @@ interface ActivityComponent {
     //Exposed to sub-graphs.
     fun activity(): AppCompatActivity
 
-    fun provideActCollaborator(): ActCollaborator
+    fun provideActCollaborator(): MainActivityCollaborator
 }

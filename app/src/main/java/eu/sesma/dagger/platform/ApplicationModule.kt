@@ -3,8 +3,6 @@ package eu.sesma.dagger.platform
 import android.content.Context
 import dagger.Module
 import dagger.Provides
-import eu.sesma.dagger.ui.AppCollaborator
-import eu.sesma.dagger.ui.IAppCollaborator
 import javax.inject.Singleton
 
 @Module

@@ -1,6 +1,5 @@
 package eu.sesma.dagger.platform
 
-import eu.sesma.dagger.ui.IAppCollaborator
 import eu.sesma.dagger.ui.TestAppCollaborator
 
 import android.content.Context

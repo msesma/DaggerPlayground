@@ -1,4 +1,4 @@
-package eu.sesma.dagger.ui.main
+package eu.sesma.dagger.main
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -6,10 +6,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import eu.sesma.dagger.R
-import eu.sesma.dagger.di.DaggerActivityComponent
-import eu.sesma.dagger.platform.ActivityModule
-import eu.sesma.dagger.platform.AndroidApplication
-import eu.sesma.main.LibraryMain
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -32,9 +28,6 @@ class MainActivity : AppCompatActivity() {
         presenter.initialize()
         title = presenter.appCollaboratorVersion
         (findViewById<View>(R.id.button) as Button).setOnClickListener(listener)
-
-        val libraryMain = LibraryMain()
-        libraryMain.initialize()
 
         findViewById<TextView>(R.id.textView2).text = presenter.libraryCollaboratorGreet
 

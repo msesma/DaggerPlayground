@@ -1,4 +1,4 @@
-package eu.sesma.dagger.ui.another
+package eu.sesma.dagger.another_activity
 
 import javax.inject.Inject
 

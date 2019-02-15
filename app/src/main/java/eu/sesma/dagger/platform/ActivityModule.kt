@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import dagger.Module
 import dagger.Provides
 import eu.sesma.dagger.di.ActivityScoped
-import eu.sesma.dagger.ui.ActCollaborator
+import eu.sesma.main.ActCollaborator
 
 @Module
 class ActivityModule(private val activity: AppCompatActivity) {
