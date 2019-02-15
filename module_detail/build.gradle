@@ -1,0 +1,22 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 12
+        versionName "1.2"
+    }
+}
+
+dependencies {
+    implementation project(':module_core')
+
+    //Dagger annotations
+    kapt "com.google.dagger:dagger-compiler:$dagger"
+}
+

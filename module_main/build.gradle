@@ -14,7 +14,8 @@ android {
 }
 
 dependencies {
-    implementation project(':core')
+    implementation project(':module_core')
+    implementation project(':module_detail')
 
     //Dagger annotations
     kapt "com.google.dagger:dagger-compiler:$dagger"
