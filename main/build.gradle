@@ -14,14 +14,9 @@ android {
 }
 
 dependencies {
-    //Kotlin
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation project(':core')
 
-    //Support
-    api "com.android.support:appcompat-v7:$support"
-    api "com.android.support.constraint:constraint-layout:$constraint"
-
-    //Dagger
+    //Dagger annotations
     kapt "com.google.dagger:dagger-compiler:$dagger"
-    api "com.google.dagger:dagger:$dagger"
 }
+

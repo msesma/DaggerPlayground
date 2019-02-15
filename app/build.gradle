@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -22,35 +24,30 @@ android {
 }
 
 dependencies {
-    implementation project(':library')
+    implementation project(':main')
     implementation project(':core')
 
-    implementation "com.android.support:appcompat-v7:$support"
-    implementation "com.android.support.constraint:constraint-layout:$constraint"
-    annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
-    implementation "com.google.dagger:dagger:$dagger"
+    //Dagger annotations
+    kapt "com.google.dagger:dagger-compiler:$dagger"
+
+    // Unit Testing
     testImplementation "junit:junit:$junit"
-    testImplementation("com.squareup.assertj:assertj-android:$assertj") {
-        exclude module: 'support-annotations'
+    testImplementation "org.mockito:mockito-inline:$mockito_inline"
+    testImplementation("com.nhaarman:mockito-kotlin:$mockito_kotlin") {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-reflect'
     }
-    testImplementation "org.mockito:mockito-core:$mockito"
     testImplementation "org.robolectric:robolectric:$robolectric"
-    androidTestImplementation "com.google.code.findbugs:jsr305:$jsr305"
-    androidTestImplementation("com.android.support.test:runner:$runner") {
-        exclude module: 'support-annotations'
-    }
-    androidTestImplementation("com.android.support.test.espresso:espresso-core:$espresso") {
-        exclude module: 'support-annotations'
-    }
-    androidTestImplementation("com.android.support.test.espresso:espresso-intents:$espresso") {
-        exclude module: 'support-annotations'
-    }
+
+    //Espresso Testing
+    androidTestImplementation "com.android.support.test:runner:$test_runner"
+    androidTestImplementation "com.android.support.test:rules:$test_runner"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$espresso"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$espresso"
     androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$espresso") {
-        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'appcompat'
         exclude group: 'com.android.support', module: 'support-v4'
         exclude module: 'recyclerview-v7'
-        exclude module: 'support-annotations'
-        exclude module: 'design'
     }
-    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger"
 }
