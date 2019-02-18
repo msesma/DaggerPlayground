@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import eu.sesma.dagger.R
+import eu.sesma.dagger.core.getCoreComponent
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -19,18 +20,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        DaggerActivityComponent.builder()
-                .applicationComponent((application as AndroidApplication).applicationComponent)
-                .activityModule(ActivityModule(this))
-                .build().inject(this)
-
+        DaggerMainActivityComponent.builder()
+                .mainActivityModule(MainActivityModule(this))
+                .coreComponent(getCoreComponent(applicationContext))
+                .build()
+                .inject(this)
 
         presenter.initialize()
-        title = presenter.appCollaboratorVersion
-        (findViewById<View>(R.id.button) as Button).setOnClickListener(listener)
 
-        findViewById<TextView>(R.id.textView2).text = presenter.libraryCollaboratorGreet
+        findViewById<View>(R.id.button).setOnClickListener(listener)
 
-        findViewById<TextView>(R.id.textView3).text = presenter.coreCollaboratorGreet
+        findViewById<TextView>(R.id.textView1).text = presenter.coreCollaboratorGreet
+
+        findViewById<TextView>(R.id.textView2).text = presenter.coreSingletonCollaboratorGreet
+
+        findViewById<TextView>(R.id.textView3).text = presenter.mainActivityCollaboratorGreet
+
+        findViewById<TextView>(R.id.textView4).text = presenter.mainActivityScopedCollaboratorGreet
     }
 }

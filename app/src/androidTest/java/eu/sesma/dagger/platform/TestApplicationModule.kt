@@ -8,6 +8,7 @@ import javax.inject.Singleton
 
 import dagger.Module
 import dagger.Provides
+import eu.sesma.dagger.AndroidApplication
 
 @Module
 class TestApplicationModule(private val application: AndroidApplication) {

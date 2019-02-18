@@ -1,6 +1,6 @@
 package eu.sesma.dagger.main
 
-import eu.sesma.core.CoreCollaborator
+import eu.sesma.dagger.core.CoreCollaborator
 
 class MainPresenterShould {
 

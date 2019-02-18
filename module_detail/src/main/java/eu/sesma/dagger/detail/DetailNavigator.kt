@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import eu.sesma.core.CoreCollaborator
+import eu.sesma.dagger.core.CoreCollaborator
 import javax.inject.Inject
 
 class DetailNavigator @Inject
@@ -16,9 +16,10 @@ constructor(private val context: Context,
         private val TAG = DetailNavigator::class.java.simpleName
     }
 
+    //TODO comment the way of launching activity
     fun navigateToAnother() {
         showLogs()
-        val intent = Intent(activity, AnotherActivity::class.java)
+        val intent = Intent(activity, Class.forName("eu.sesma.dagger.app_activity.AppActivity"))
         activity.startActivity(intent)
     }
 

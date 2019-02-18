@@ -9,7 +9,7 @@ class NavigatorShould {
 
     private val context: Context = mock()
     private val appCollaborator: IAppCollaborator = mock()
-    private val actCollaborator: MainActivityCollaborator = mock()
+    private val actCollaborator: MainCollaborator = mock()
     private val baseActivity: BaseActivity = mock()
 
     private val intentArgumentCaptor = ArgumentCaptor.forClass(Intent::class.java)

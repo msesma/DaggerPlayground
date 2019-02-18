@@ -1,8 +1,8 @@
-package eu.sesma.dagger.another_activity
+package eu.sesma.dagger.app_activity
 
 import javax.inject.Inject
 
-class AnotherPresenter
+class AppPresenter
 @Inject constructor() {
 
     fun initialize() {

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
+import eu.sesma.dagger.core.getCoreComponent
 import eu.sesma.dagger.R
 import javax.inject.Inject
 
@@ -17,10 +18,12 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
-        DaggerActivityComponent.builder()
-                .applicationComponent((application as AndroidApplication).applicationComponent)
-                .activityModule(ActivityModule(this))
-                .build().inject(this)
+
+        DaggerDetailActivityComponent.builder()
+                .detailActivityModule(DetailActivityModule(this))
+                .coreComponent(getCoreComponent(applicationContext))
+                .build()
+                .inject(this)
 
         presenter.initialize()
         findViewById<Button>(R.id.button).setOnClickListener(listener)

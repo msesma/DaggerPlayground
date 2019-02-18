@@ -1,13 +1,12 @@
-package eu.sesma.core
+package eu.sesma.dagger.core
 
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
 class CoreSingletonCollaborator
 @Inject constructor() {
 
     fun greet(): String {
-        return "-Hello, I'm CoreSingletonCollaborator"
+        return "-Hello, I'm CoreSingletonCollaborator: $this"
     }
 }

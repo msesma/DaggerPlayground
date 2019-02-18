@@ -1,8 +1,8 @@
 package eu.sesma.dagger.detail
 
 import android.util.Log
-import eu.sesma.core.CoreCollaborator
-import eu.sesma.core.CoreSingletonCollaborator
+import eu.sesma.dagger.core.CoreCollaborator
+import eu.sesma.dagger.core.CoreSingletonCollaborator
 import javax.inject.Inject
 
 class DetailPresenter
