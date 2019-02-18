@@ -1,29 +1,25 @@
 package eu.sesma.dagger.main
 
+import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.verify
 import eu.sesma.dagger.core.CoreCollaborator
+import eu.sesma.dagger.core.CoreSingletonCollaborator
+import org.junit.Before
+import org.junit.Test
 
 class MainPresenterShould {
 
     private val navigator: MainNavigator = mock()
-    private val collaborator: IAppCollaborator = mock()
-    private val libraryCollaborator: LibraryCollaborator = mock()
+    private val mainCollaborator: MainCollaborator = mock()
+    private val mainScopedCollaborator: MainScopedCollaborator = mock()
+    private val coreSingletonCollaborator: CoreSingletonCollaborator = mock()
     private val coreCollaborator: CoreCollaborator = mock()
 
     private lateinit var presenter: MainPresenter
 
     @Before
     fun setup() {
-        MockitoAnnotations.initMocks(this)
-        presenter = MainPresenter(navigator, collaborator, libraryCollaborator, coreCollaborator)
-    }
-
-    @Test
-    fun `get Version From Collaborator When getCollaboratorVersion`() {
-        whenever(collaborator.collaboratorVersion).thenReturn("version")
-
-        val version = presenter.appCollaboratorVersion
-
-        assertEquals("version", version)
+        presenter = MainPresenter(navigator, mainCollaborator, mainScopedCollaborator, coreSingletonCollaborator, coreCollaborator)
     }
 
     @Test
@@ -31,6 +27,6 @@ class MainPresenterShould {
 
         presenter.onClick()
 
-        verify<MainNavigator>(navigator).navigateToDetail()
+        verify(navigator).navigateToDetail()
     }
 }

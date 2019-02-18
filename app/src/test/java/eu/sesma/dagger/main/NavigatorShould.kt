@@ -2,15 +2,30 @@ package eu.sesma.dagger.main
 
 import android.content.Context
 import android.content.Intent
+import android.support.v7.app.AppCompatActivity
+import com.nhaarman.mockito_kotlin.doNothing
+import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.whenever
+import eu.sesma.dagger.core.CoreCollaborator
+import eu.sesma.dagger.core.CoreSingletonCollaborator
+import eu.sesma.dagger.detail.DetailActivity
+import org.junit.Assert.assertEquals
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.ArgumentCaptor
+import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
 class NavigatorShould {
 
-
     private val context: Context = mock()
-    private val appCollaborator: IAppCollaborator = mock()
-    private val actCollaborator: MainCollaborator = mock()
-    private val baseActivity: BaseActivity = mock()
+    private val coreCollaborator: CoreCollaborator = mock()
+    private val coreSingletonCollaborator: CoreSingletonCollaborator = mock()
+    private val mainCollaborator: MainCollaborator = mock()
+    private val mainScopedCollaborator: MainScopedCollaborator = mock()
+    private val activity: AppCompatActivity = mock()
+
 
     private val intentArgumentCaptor = ArgumentCaptor.forClass(Intent::class.java)
 
@@ -18,9 +33,8 @@ class NavigatorShould {
 
     @Before
     fun setup() {
-        MockitoAnnotations.initMocks(this)
-        navigator = MainNavigator(context, appCollaborator, actCollaborator, baseActivity)
-        doNothing().whenever(baseActivity).startActivity(intentArgumentCaptor.capture())
+        navigator = MainNavigator(context, coreCollaborator, coreSingletonCollaborator, mainCollaborator, mainScopedCollaborator, activity)
+        doNothing().whenever(activity).startActivity(intentArgumentCaptor.capture())
     }
 
     @Test
@@ -29,13 +43,5 @@ class NavigatorShould {
         navigator.navigateToDetail()
 
         assertEquals(DetailActivity::class.java.name, intentArgumentCaptor.value.component?.className)
-    }
-
-    @Test
-    fun navigateToAnotherOnMethodCall() {
-
-        navigator.navigateToAnother()
-
-        assertEquals(AnotherActivity::class.java.name, intentArgumentCaptor.value.component?.className)
     }
 }
