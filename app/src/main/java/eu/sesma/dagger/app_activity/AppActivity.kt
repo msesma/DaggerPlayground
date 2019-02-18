@@ -2,10 +2,10 @@ package eu.sesma.dagger.app_activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import eu.sesma.dagger.R
-import eu.sesma.dagger.DaggerAppActivityComponent
-import eu.sesma.dagger.AppActivityModule
 import eu.sesma.dagger.AndroidApplication
+import eu.sesma.dagger.R
+import eu.sesma.dagger.di.AppActivityModule
+import eu.sesma.dagger.di.DaggerAppActivityComponent
 import javax.inject.Inject
 
 class AppActivity : AppCompatActivity() {

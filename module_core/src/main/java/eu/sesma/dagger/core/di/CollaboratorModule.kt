@@ -1,8 +1,9 @@
-package eu.sesma.dagger.core
+package eu.sesma.dagger.core.di
 
-import android.content.Context
 import dagger.Module
 import dagger.Provides
+import eu.sesma.dagger.core.CoreCollaborator
+import eu.sesma.dagger.core.CoreSingletonCollaborator
 import javax.inject.Singleton
 
 

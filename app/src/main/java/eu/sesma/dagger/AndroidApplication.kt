@@ -1,8 +1,13 @@
 package eu.sesma.dagger
 
 import android.app.Application
-import eu.sesma.dagger.core.*
-import eu.sesma.dagger.DaggerApplicationComponent
+import eu.sesma.dagger.core.di.CoreComponent
+import eu.sesma.dagger.core.di.CoreComponentProvider
+import eu.sesma.dagger.core.di.CoreModule
+import eu.sesma.dagger.core.di.DaggerCoreComponent
+import eu.sesma.dagger.di.ApplicationComponent
+import eu.sesma.dagger.di.ApplicationModule
+import eu.sesma.dagger.di.DaggerApplicationComponent
 
 open class AndroidApplication : Application(), CoreComponentProvider {
 

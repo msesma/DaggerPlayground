@@ -3,10 +3,11 @@ package eu.sesma.dagger.main
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.Button
 import android.widget.TextView
 import eu.sesma.dagger.R
-import eu.sesma.dagger.core.getCoreComponent
+import eu.sesma.dagger.core.di.getCoreComponent
+import eu.sesma.dagger.main.di.DaggerMainActivityComponent
+import eu.sesma.dagger.main.di.MainActivityModule
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {

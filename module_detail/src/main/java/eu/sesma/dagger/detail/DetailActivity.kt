@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
-import eu.sesma.dagger.core.getCoreComponent
 import eu.sesma.dagger.R
+import eu.sesma.dagger.core.di.getCoreComponent
+import eu.sesma.dagger.detail.di.DaggerDetailActivityComponent
+import eu.sesma.dagger.detail.di.DetailActivityModule
 import javax.inject.Inject
 
 class DetailActivity : AppCompatActivity() {

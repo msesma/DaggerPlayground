@@ -1,4 +1,4 @@
-package eu.sesma.dagger.core
+package eu.sesma.dagger.core.di
 
 import javax.inject.Scope
 

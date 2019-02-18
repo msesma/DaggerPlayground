@@ -1,8 +1,8 @@
-package eu.sesma.dagger.core
+package eu.sesma.dagger.core.di
 
 import android.content.Context
 
-
+//TODO Explain this file
 /**
  * This interface is implemented by {@link AndroidApplication} in order to create the dagger CoreComponent
  * and expose its instances to app module and the rest of the modules (e.g. home, hive...)
