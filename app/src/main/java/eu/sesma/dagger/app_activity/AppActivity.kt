@@ -2,6 +2,7 @@ package eu.sesma.dagger.app_activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.TextView
 import eu.sesma.dagger.AndroidApplication
 import eu.sesma.dagger.R
 import eu.sesma.dagger.di.AppActivityModule
@@ -24,5 +25,7 @@ class AppActivity : AppCompatActivity() {
                 .inject(this)
 
         presenter.initialize()
+
+        findViewById<TextView>(R.id.text_view_for_test).text = presenter.appSingletonCollaboratorMessage()
     }
 }

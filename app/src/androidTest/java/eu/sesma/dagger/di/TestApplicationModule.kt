@@ -4,12 +4,11 @@ import android.app.Application
 import dagger.Module
 import dagger.Provides
 import eu.sesma.dagger.AndroidApplication
-import eu.sesma.dagger.AppSingletonCollaborator
 import eu.sesma.dagger.IAppSingletonCollaborator
-import javax.inject.Singleton
+import eu.sesma.dagger.TestAppSingletonCollaborator
 
 @Module
-class ApplicationModule(private val application: AndroidApplication) {
+class TestApplicationModule(private val application: AndroidApplication) {
 
     @Provides
     @ApplicationScoped
@@ -17,5 +16,5 @@ class ApplicationModule(private val application: AndroidApplication) {
 
     @Provides
     @ApplicationScoped
-    fun provideAppCollaborator(): IAppSingletonCollaborator = AppSingletonCollaborator()
+    fun provideAppCollaborator(): IAppSingletonCollaborator = TestAppSingletonCollaborator()
 }

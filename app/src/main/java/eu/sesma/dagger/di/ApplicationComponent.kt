@@ -2,7 +2,7 @@ package eu.sesma.dagger.di
 
 import android.app.Application
 import dagger.Component
-import eu.sesma.dagger.AppSingletonCollaborator
+import eu.sesma.dagger.IAppSingletonCollaborator
 import eu.sesma.dagger.core.di.CoreComponent
 
 @ApplicationScoped
@@ -14,6 +14,6 @@ interface ApplicationComponent {
     //Exposed to sub-graphs
     fun provideContext(): Application
 
-    fun appSingletonCollaborator(): AppSingletonCollaborator
+    fun appSingletonCollaborator(): IAppSingletonCollaborator
 
 }

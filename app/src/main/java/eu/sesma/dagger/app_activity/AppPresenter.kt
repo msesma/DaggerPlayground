@@ -1,12 +1,12 @@
 package eu.sesma.dagger.app_activity
 
 import android.util.Log
-import eu.sesma.dagger.AppSingletonCollaborator
+import eu.sesma.dagger.IAppSingletonCollaborator
 import javax.inject.Inject
 
 class AppPresenter
-@Inject constructor(val appSingletonCollaborator1: AppSingletonCollaborator,
-                    val appSingletonCollaborator2: AppSingletonCollaborator) {
+@Inject constructor(private val appSingletonCollaborator1: IAppSingletonCollaborator,
+                    private val appSingletonCollaborator2: IAppSingletonCollaborator) {
 
     companion object {
         private val TAG = AppPresenter::class.java.simpleName
@@ -21,4 +21,6 @@ class AppPresenter
                 " \r\n==> appSingletonCollaborator1: " + appSingletonCollaborator1 +
                 " \r\n==> appSingletonCollaborator2: " + appSingletonCollaborator2)
     }
+
+    fun appSingletonCollaboratorMessage() = appSingletonCollaborator1.getMessage()
 }

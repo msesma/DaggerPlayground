@@ -37,4 +37,8 @@ This is a implementation of a multi-module application.
 
 #### 6- Let's see where the magic happen:
 - Open module_core `CoreComponentProvider` file. It contains an interface implemented by out Application class `AndroidApplication` and a top level function to get the `CoreComponent`
-- Looking to this class, `AndroidApplication` and `MainActivity` in the module_main, Can you explain how the multi-module dagger implementation works?
+- Looking to this class, `AndroidApplication` and `MainActivity` in the module_main, Can you explain how the multi-module dagger implementation works or are you a muggle?
+
+#### 7- Espresso tests:
+- Run Espresso tests. The message verified in `AppActivityTest` is not the message that the production implementation of `IAppSingletonCollaborator` shows in the AppActivity. Can you explain how Dagger select a different collaborator during test time?
+- Think on how this can be used to change your API endpoint to a mocked server.

@@ -1,11 +1,10 @@
 package eu.sesma.dagger.di
 
-import eu.sesma.dagger.platform.TestApplicationModule
-
-import javax.inject.Singleton
-
 import dagger.Component
+import eu.sesma.dagger.core.di.CoreComponent
 
-@Singleton
-@Component(modules = [TestApplicationModule::class])
+@ApplicationScoped
+@Component(
+        modules = [TestApplicationModule::class],
+        dependencies = [CoreComponent::class])
 interface TestApplicationComponent : ApplicationComponent

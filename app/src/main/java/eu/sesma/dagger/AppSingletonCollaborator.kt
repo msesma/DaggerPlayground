@@ -1,3 +1,5 @@
 package eu.sesma.dagger
 
-class AppSingletonCollaborator
+class AppSingletonCollaborator : IAppSingletonCollaborator{
+    override fun getMessage() = "AppSingletonCollaborator production mode"
+}
