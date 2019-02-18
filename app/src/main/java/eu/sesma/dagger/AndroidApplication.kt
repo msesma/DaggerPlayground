@@ -11,7 +11,6 @@ import eu.sesma.dagger.di.DaggerApplicationComponent
 
 open class AndroidApplication : Application(), CoreComponentProvider {
 
-    //TODO Explain why coremodule has to be set but collaboratorModule dont
     protected open val coreComponent: CoreComponent by lazy {
         DaggerCoreComponent.builder()
                 .coreModule(CoreModule(this@AndroidApplication))

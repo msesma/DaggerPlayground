@@ -16,7 +16,6 @@ constructor(private val context: Context,
         private val TAG = DetailNavigator::class.java.simpleName
     }
 
-    //TODO comment the way of launching activity
     fun navigateToAnother() {
         showLogs()
         val intent = Intent(activity, Class.forName("eu.sesma.dagger.app_activity.AppActivity"))

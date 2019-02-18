@@ -15,6 +15,6 @@ class ApplicationModule(private val application: AndroidApplication) {
     fun provideContext(): Application = application
 
     @Provides
-    @ApplicationScoped //TODO Exercise change by a singleton
+    @ApplicationScoped
     fun provideAppCollaborator(): AppSingletonCollaborator = AppSingletonCollaborator()
 }
