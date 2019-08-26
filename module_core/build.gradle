@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -21,7 +20,7 @@ dependencies {
     api "com.android.support:appcompat-v7:$support"
     api "com.android.support.constraint:constraint-layout:$constraint"
 
-    //Dagger
-    kapt "com.google.dagger:dagger-compiler:$dagger"
-    api "com.google.dagger:dagger:$dagger"
+    //Koin
+    api 'org.koin:koin-android:2.0.1'
+    api 'org.koin:koin-android-scope:2.0.1'
 }

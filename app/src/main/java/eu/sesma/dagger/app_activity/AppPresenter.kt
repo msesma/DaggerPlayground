@@ -2,11 +2,10 @@ package eu.sesma.dagger.app_activity
 
 import android.util.Log
 import eu.sesma.dagger.IAppSingletonCollaborator
-import javax.inject.Inject
 
 class AppPresenter
-@Inject constructor(private val appSingletonCollaborator1: IAppSingletonCollaborator,
-                    private val appSingletonCollaborator2: IAppSingletonCollaborator) {
+constructor(private val appSingletonCollaborator1: IAppSingletonCollaborator,
+            private val appSingletonCollaborator2: IAppSingletonCollaborator) {
 
     companion object {
         private val TAG = AppPresenter::class.java.simpleName

@@ -1,7 +1,6 @@
 package eu.sesma.dagger.di
 
 import dagger.Component
-import eu.sesma.dagger.core.di.CoreComponent
 
 @ApplicationScoped
 @Component(

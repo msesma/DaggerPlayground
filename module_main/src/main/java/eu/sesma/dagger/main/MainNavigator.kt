@@ -7,9 +7,8 @@ import android.util.Log
 import eu.sesma.dagger.core.CoreCollaborator
 import eu.sesma.dagger.core.CoreSingletonCollaborator
 import eu.sesma.dagger.detail.DetailActivity
-import javax.inject.Inject
 
-class MainNavigator @Inject
+class MainNavigator
 constructor(private val context: Context,
             private val coreCollaborator: CoreCollaborator,
             private val coreSingletonCollaborator: CoreSingletonCollaborator,

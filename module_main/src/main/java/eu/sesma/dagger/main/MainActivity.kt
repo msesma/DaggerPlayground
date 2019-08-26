@@ -5,27 +5,17 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
 import eu.sesma.dagger.R
-import eu.sesma.dagger.core.di.getCoreComponent
-import eu.sesma.dagger.main.di.DaggerMainActivityComponent
-import eu.sesma.dagger.main.di.MainActivityModule
-import javax.inject.Inject
+import org.koin.android.scope.currentScope
 
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var presenter: MainPresenter
+    val presenter: MainPresenter by currentScope.inject()
 
     private val listener: View.OnClickListener = View.OnClickListener { presenter.onClick() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        DaggerMainActivityComponent.builder()
-                .mainActivityModule(MainActivityModule(this))
-                .coreComponent(getCoreComponent(applicationContext))
-                .build()
-                .inject(this)
 
         presenter.initialize()
 

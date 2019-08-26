@@ -1,10 +1,6 @@
 package eu.sesma.dagger.core
 
-import javax.inject.Inject
-import javax.inject.Singleton
-
-class CoreSingletonCollaborator
-@Inject constructor() {
+class CoreSingletonCollaborator {
 
     fun greet(): String {
         return "-Hello, I'm CoreSingletonCollaborator: $this"

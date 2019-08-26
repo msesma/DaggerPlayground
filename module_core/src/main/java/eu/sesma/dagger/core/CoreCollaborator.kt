@@ -1,9 +1,7 @@
 package eu.sesma.dagger.core
 
-import javax.inject.Inject
 
-class CoreCollaborator
-@Inject constructor() {
+class CoreCollaborator {
 
     fun greet(): String {
         return "-Hello, I'm CoreCollaborator: $this"

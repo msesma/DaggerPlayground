@@ -1,16 +1,7 @@
 package eu.sesma.dagger.di
 
-import android.support.v7.app.AppCompatActivity
-import dagger.Module
-import dagger.Provides
-import eu.sesma.dagger.core.di.ActivityScoped
+import org.koin.dsl.module
 
-@Module
-class AppActivityModule(private val activity: AppCompatActivity) {
+val appActivityModule = module {
 
-    @Provides
-    @ActivityScoped
-    fun provideActivity(): AppCompatActivity {
-        return this.activity
-    }
 }

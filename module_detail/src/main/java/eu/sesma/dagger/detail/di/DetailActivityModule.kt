@@ -1,13 +1,30 @@
 package eu.sesma.dagger.detail.di
 
-import android.support.v7.app.AppCompatActivity
-import dagger.Module
-import dagger.Provides
+import eu.sesma.dagger.core.di.ActivityProvider
+import eu.sesma.dagger.detail.DetailActivity
+import eu.sesma.dagger.detail.DetailNavigator
+import eu.sesma.dagger.detail.DetailPresenter
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.qualifier.named
+import org.koin.dsl.module
 
 
-@Module
-class DetailActivityModule(private val activity: AppCompatActivity) {
+val detailActivityModule = module {
+    scope(named<DetailActivity>()) {
+        scoped {
+            DetailNavigator(
+                    context = androidContext(),
+                    coreCollaborator = get(),
+                    activity = (androidContext() as ActivityProvider).activeActivity
+            )
+        }
 
-    @Provides
-    fun providesActivity() = activity
+        scoped {
+            DetailPresenter(
+                    navigator = get(),
+                    coreSingletonCollaborator = get(),
+                    coreCollaborator = get()
+            )
+        }
+    }
 }

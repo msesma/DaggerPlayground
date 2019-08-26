@@ -3,14 +3,13 @@ package eu.sesma.dagger.main
 import android.util.Log
 import eu.sesma.dagger.core.CoreCollaborator
 import eu.sesma.dagger.core.CoreSingletonCollaborator
-import javax.inject.Inject
 
 class MainPresenter
-@Inject constructor(private val navigator: MainNavigator,
-                    private val mainCollaborator: MainCollaborator,
-                    private val mainScopedCollaborator: MainScopedCollaborator,
-                    private val coreSingletonCollaborator: CoreSingletonCollaborator,
-                    private val coreCollaborator: CoreCollaborator) {
+constructor(private val navigator: MainNavigator,
+            private val mainCollaborator: MainCollaborator,
+            private val mainScopedCollaborator: MainScopedCollaborator,
+            private val coreSingletonCollaborator: CoreSingletonCollaborator,
+            private val coreCollaborator: CoreCollaborator) {
 
     companion object {
         private val TAG = MainPresenter::class.java.simpleName

@@ -1,13 +1,12 @@
 package eu.sesma.dagger.core.di
 
-import android.content.Context
-import dagger.Module
-import dagger.Provides
+import eu.sesma.dagger.core.CoreCollaborator
+import eu.sesma.dagger.core.CoreSingletonCollaborator
+import org.koin.dsl.module
 
+val coreModule = module {
 
-@Module
-class CoreModule(val context: Context) {
+    single { CoreSingletonCollaborator() }
 
-    @Provides
-    fun provideApplicationContext(): Context = context.applicationContext
+    factory { CoreCollaborator() }
 }

@@ -5,9 +5,8 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import eu.sesma.dagger.core.CoreCollaborator
-import javax.inject.Inject
 
-class DetailNavigator @Inject
+class DetailNavigator
 constructor(private val context: Context,
             private val coreCollaborator: CoreCollaborator,
             private val activity: AppCompatActivity) {
