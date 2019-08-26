@@ -1,14 +1,16 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.paradigmadigital.dagger"
+        applicationId "eu.sesma.dagger"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 11
-        versionName "1.1"
-        testInstrumentationRunner "com.paradigmadigital.dagger.platform.TestRunner"
+        versionCode 12
+        versionName "1.2"
+        testInstrumentationRunner "eu.sesma.dagger.TestRunner"
     }
     buildTypes {
         release {
@@ -21,53 +23,33 @@ android {
     }
 }
 
-ext {
-    support = '28.0.0'
-    constraint = '1.1.3'
-
-    dagger = '2.19'
-
-    junit = '4.12'
-    robolectric = '3.3'
-    assertj = '1.1.1'
-    mockito = '2.7.14'
-    espresso = '2.2.2'
-    runner = '0.5'
-    commons = '2.4'
-    jsr305 = '3.0.1'
-    robolectric = '3.3'
-}
-
 dependencies {
-    implementation project(':library')
-    implementation project(':core')
+    implementation project(':module_main')
+    implementation project(':module_detail')
+    implementation project(':module_core')
 
-    implementation "com.android.support:appcompat-v7:$support"
-    implementation "com.android.support.constraint:constraint-layout:$constraint"
-    annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
-    implementation "com.google.dagger:dagger:$dagger"
+    //Dagger annotations
+    kapt "com.google.dagger:dagger-compiler:$dagger"
+
+    // Unit Testing
     testImplementation "junit:junit:$junit"
-    testImplementation("com.squareup.assertj:assertj-android:$assertj") {
-        exclude module: 'support-annotations'
+    testImplementation "org.mockito:mockito-inline:$mockito_inline"
+    testImplementation("com.nhaarman:mockito-kotlin:$mockito_kotlin") {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-reflect'
     }
-    testImplementation "org.mockito:mockito-core:$mockito"
     testImplementation "org.robolectric:robolectric:$robolectric"
-    androidTestImplementation "com.google.code.findbugs:jsr305:$jsr305"
-    androidTestImplementation("com.android.support.test:runner:$runner") {
-        exclude module: 'support-annotations'
-    }
-    androidTestImplementation("com.android.support.test.espresso:espresso-core:$espresso") {
-        exclude module: 'support-annotations'
-    }
-    androidTestImplementation("com.android.support.test.espresso:espresso-intents:$espresso") {
-        exclude module: 'support-annotations'
-    }
+
+    //Espresso Testing
+    androidTestImplementation "com.android.support.test:runner:$test_runner"
+    androidTestImplementation "com.android.support.test:rules:$test_runner"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$espresso"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$espresso"
     androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$espresso") {
-        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'appcompat'
         exclude group: 'com.android.support', module: 'support-v4'
         exclude module: 'recyclerview-v7'
-        exclude module: 'support-annotations'
-        exclude module: 'design'
     }
-    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger"
 }

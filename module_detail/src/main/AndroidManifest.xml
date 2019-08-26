@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="eu.sesma.dagger">
+
+    <application>
+        <activity android:name=".detail.DetailActivity"/>
+    </application>
+
+</manifest>
