@@ -2,10 +2,13 @@ package eu.sesma.dagger
 
 import android.app.Activity
 import android.app.Application
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import eu.sesma.dagger.core.di.ActivityProvider
 import eu.sesma.dagger.core.di.coreModule
+import eu.sesma.dagger.detail.DetailActivity
 import eu.sesma.dagger.detail.di.detailActivityModule
 import eu.sesma.dagger.di.appActivityModule
 import eu.sesma.dagger.di.appModule
@@ -42,11 +45,11 @@ open class AndroidApplication : Application(), ActivityProvider {
 
             override fun onActivityStopped(activity: Activity?) {}
 
-            override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {}
-
-            override fun onActivityPaused(activity: Activity?) {
+            override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
                 activeActivity = activity as AppCompatActivity
             }
+
+            override fun onActivityPaused(activity: Activity?) {}
 
             override fun onActivityResumed(activity: Activity?) {}
         })
