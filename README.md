@@ -1,11 +1,11 @@
-Dagger 2 playground
+~~(Dagger 2)~~ Koin playground
 ================
 
-# Dagger injection in a Multi-module app
+# Koin "injection" in a Multi-module app
 
 ## Description
 
-This is a implementation of a multi-module application.
+This is a implementation of a multi-module application. Is exactly equal to the previous branch (6-Injection_in_multimodule_app) Changing dagger for Koin for comparison
 - **app**: This is the application module. Contains the application class, the dagger graph root, and a sample activity that you can think on as one that is difficult to extract to a feature module. There is a singleton dependency that will be accessible all across this module and we will change for a different implementation in Espresso test time.
 - **module_core**: Here we put all the app wide dependencies, like API access, Database, etc. We could have several dependency modules like this. In this sample we have two collaborators, one singleton and one multi-instance.
 - **module_main**: Feature module. This contains the main activity that has access to core dependencies and this module collaborators. In both cases we have singleton and multi-instance samples.
@@ -36,10 +36,15 @@ This is a implementation of a multi-module application.
 - `MainNavigator` navigates to DetailActivity using the class of the Activity, but `DetailNavigator` needs to locate the class from the full path of the file. Why? 
 
 #### 6- Let's see where the magic happen:
-- Open module_core `CoreComponentProvider` file. It contains an interface implemented by out Application class `AndroidApplication` and a top level function to get the `CoreComponent`
-- Looking to this class, `AndroidApplication` and `MainActivity` in the module_main, Can you explain how the multi-module dagger implementation works or are you a muggle?
+- Every injected class is created in a Koin module. Check every module class (look in Android application for the list) to understand sigleton, factories and scopes. Could you explain why each Collaborator / Navigator is created in a particular way?
+- Koin cannot inject the current activity because there is no way of passing scope contexts. Here we use a trick. Look at ActivityProvider interface in Core module, AndroidApplication implementing it and MainActivityModule Koin module using it to inject the activity in the Navigator. Coudl you explain how it works?
 
 #### 7- Espresso tests:
-- Run Espresso tests. The message verified in `AppActivityTest` is not the message that the production implementation of `IAppSingletonCollaborator` shows in the AppActivity. Can you explain how Dagger select a different collaborator during test time?
+- Run Espresso tests. The message verified in `AppActivityTest` is not the message that the production implementation of `IAppSingletonCollaborator` shows in the AppActivity. Can you explain how Koin select a different collaborator during test time?
 - Think on how this can be used to change your API endpoint to a mocked server.`
 
+#### 7- Dagger vs Koin:
+- Koin cannot solve the graph by itself so we need to create instances of every single injected class. This can be overwhelming in big projects, adding a lot of boilerplate.
+- Koin does not construct the graph in compilation time. That causes frequent runtime error when we forget to create a class factory or singleton. Try removing one factory or singleton from any module. It compileas and fails in runtime. Now do the same in the previous branch, in Dagger. Remove a, @Inject or a provides. The app won't compile and you'll get an auto-explanatory error.
+- The number of configuration files in Koin is smaller than in Dagger. Koin is easier to configure in small projects.
+- Koin has limitations creating scopes and subgraphs. Everythink can be worked around, but sometimes can be difficult.

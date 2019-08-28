@@ -1,15 +1,21 @@
 package eu.sesma.dagger
 
-import eu.sesma.dagger.di.ApplicationModule
-import eu.sesma.dagger.di.DaggerTestApplicationComponent
-import eu.sesma.dagger.di.TestApplicationModule
+import eu.sesma.dagger.core.di.coreModule
+import eu.sesma.dagger.detail.di.detailActivityModule
+import eu.sesma.dagger.di.appActivityModule
+import eu.sesma.dagger.di.testApplicationModule
+import eu.sesma.dagger.main.di.mainActivityModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
 
 class TestAndroidApplication : AndroidApplication() {
 
-    override val applicationComponent: ApplicationComponent by lazy {
-        DaggerTestApplicationComponent.builder()
-                .testApplicationModule(TestApplicationModule(this))
-                .coreComponent(coreComponent)
-                .build()
+    override fun initKoin() {
+        startKoin {
+            androidLogger()
+            androidContext(this@TestAndroidApplication)
+            modules(listOf(testApplicationModule, coreModule, mainActivityModule, detailActivityModule, appActivityModule))
+        }
     }
 }

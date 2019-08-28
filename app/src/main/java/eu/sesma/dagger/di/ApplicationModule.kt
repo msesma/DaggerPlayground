@@ -5,7 +5,7 @@ import eu.sesma.dagger.IAppSingletonCollaborator
 import eu.sesma.dagger.core.CoreCollaborator
 import org.koin.dsl.module
 
-val appModule = module {
+val applicationModule = module {
 
     single<IAppSingletonCollaborator> { AppSingletonCollaborator() }
 

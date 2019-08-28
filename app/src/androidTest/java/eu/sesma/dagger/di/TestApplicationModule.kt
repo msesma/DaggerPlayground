@@ -1,20 +1,12 @@
 package eu.sesma.dagger.di
 
-import android.app.Application
-import dagger.Module
-import dagger.Provides
-import eu.sesma.dagger.AndroidApplication
+
 import eu.sesma.dagger.IAppSingletonCollaborator
 import eu.sesma.dagger.TestAppSingletonCollaborator
+import org.koin.dsl.module
 
-@Module
-class TestApplicationModule(private val application: AndroidApplication) {
+val testApplicationModule = module {
 
-    @Provides
-    @ApplicationScoped
-    fun provideContext(): Application = application
+    single<IAppSingletonCollaborator> { TestAppSingletonCollaborator() }
 
-    @Provides
-    @ApplicationScoped
-    fun provideAppCollaborator(): IAppSingletonCollaborator = TestAppSingletonCollaborator()
 }
